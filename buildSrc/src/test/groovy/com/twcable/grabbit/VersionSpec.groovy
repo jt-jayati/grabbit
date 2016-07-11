@@ -14,24 +14,28 @@
  * limitations under the License.
  */
 
-package org.gradle
+package com.twcable.grabbit
 
 import spock.lang.Specification
 
 class VersionSpec extends Specification {
 
-    def versionWhenSnapshot(){
+    def "version When Snapshot"(){
+        given:
+        final String ver = "Test-SNAPSHOT"
         when:
-        Version version = new Version("Test-SNAPSHOT")
+        Version version = new Version(ver)
         then:
-        version.thisVersion == "Test-"+ version.getTimestamp()
+        version.thisVersion == ver - "SNAPSHOT" + version.getTimestamp()
     }
 
-    def defaultVesrsion(){
+    def "default Vesrsion"(){
+        given:
+        final String ver = "1.0.5"
         when:
-        Version version = new Version("1.0.5")
+        Version version = new Version(ver)
         then:
-        version.thisVersion == "1.0.5"
+        version.thisVersion == ver
     }
 
 }
