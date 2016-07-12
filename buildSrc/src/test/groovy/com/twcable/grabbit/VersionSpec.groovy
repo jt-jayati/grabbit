@@ -29,7 +29,7 @@ class VersionSpec extends Specification {
         version.thisVersion == ver - "SNAPSHOT" + version.getTimestamp()
     }
 
-    def "default Vesrsion"(){
+    def "default Version"(){
         given:
         final String ver = "1.0.5"
         when:
