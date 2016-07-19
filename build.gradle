@@ -22,7 +22,6 @@ plugins {
     id "com.jfrog.bintray" version "1.3.1"
 }
 
-
     apply plugin: 'idea'
     apply plugin: 'eclipse'
     apply plugin: 'maven'
@@ -50,7 +49,6 @@ ext.organization = "Time Warner Cable"
 ext.providerUrl = "https://www.timewarnercable.com"
 ext.providerLink = "https://github.com/TWCable/grabbit"
 
-configure(excludeProjects()) {
     apply plugin: 'groovy'
     apply from: "${rootProject.projectDir}/gradle/dependencies.gradle"
     apply from: "${rootProject.projectDir}/testutils/gradle/testing.gradle"
@@ -62,7 +60,6 @@ configure(excludeProjects()) {
         attributes 'Implementation-Version': project.version
         attributes 'Implementation-Vendor': project.vendor
     }
-}
 
     afterEvaluate {
         if (project.hasProperty('sourceCompatibility')) {
@@ -93,10 +90,6 @@ configure(excludeProjects()) {
             }
         }
     }
-
-def excludeProjects() {
-    project.name != 'proto' && project.name != 'osgi-wrappers'
-}
 
 idea.project.ipr {
     withXml { provider ->
